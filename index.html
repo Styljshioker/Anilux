@@ -1,521 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AniLux – Wear Your World.</title>
-  <meta name="description" content="Premium anime-inspired apparel for discerning fans. Sophisticated designs. Ethically made.">
+  <title>AniLux – Wear Your World. Premium Anime Apparel</title>
+  <meta name="description" content="Sophisticated anime-inspired fashion. Ethically made. Artist-collaborated. Limited collections.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
-  <!-- Google Fonts: Poppins (headings), Inter (body) -->
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="AniLux – Wear Your World." />
+  <meta property="og:description" content="Premium anime apparel with subtle elegance." />
+  <meta property="og:image" content="https://anilux.vercel.app/images/og-home.jpg" />
+  <meta property="og:url" content="https://anilux.vercel.app" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    /* === GLOBAL === */
-    :root {
-      --black: #0a0a0a;
-      --cream: #f8f5f2;
-      --silver: #c0c0c0;
-      --gold: #d4af37;
-      --accent: #4A90E2; /* Celestial Blue */
-      --transition: all 0.3s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: var(--black);
-      color: var(--cream);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    a {
-      color: var(--cream);
-      text-decoration: none;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .btn {
-      padding: 12px 28px;
-      background: transparent;
-      color: var(--cream);
-      border: 1px solid var(--silver);
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      letter-spacing: 0.5px;
-    }
-
-    .btn:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--black);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--black);
-    }
-
-    .btn-primary:hover {
-      background: var(--black);
-      border-color: var(--cream);
-      color: var(--cream);
-    }
-
-    .section {
-      padding: 100px 0;
-    }
-
-    .section-title {
-      font-size: 2.5em;
-      text-align: center;
-      margin-bottom: 60px;
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60%;
-      height: 2px;
-      background: var(--accent);
-      left: 20%;
-    }
-
-    /* === HEADER === */
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 20px 0;
-      transition: var(--transition);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 1.8em;
-      letter-spacing: -0.5px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    nav a {
-      font-size: 14px;
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: var(--transition);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .header-right {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .icon {
-      font-size: 1.2em;
-      color: var(--cream);
-    }
-
-    /* === HERO === */
-    .hero {
-      height: 100vh;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cream);
-    }
-
-    .hero-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: -1;
-    }
-
-    .hero-content {
-      text-align: center;
-      max-width: 800px;
-      padding: 0 20px;
-    }
-
-    .hero-title {
-      font-size: 4em;
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
-
-    .hero-subtitle {
-      font-size: 1.3em;
-      margin-bottom: 30px;
-      font-weight: 300;
-      opacity: 0.9;
-    }
-
-    /* === COLLECTIONS BAR === */
-    .collections-bar {
-      background: rgba(255,255,255,0.05);
-      padding: 20px 0;
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: none;
-    }
-
-    .collections-bar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .collection-item {
-      display: inline-block;
-      margin: 0 15px;
-      text-align: center;
-      width: 180px;
-    }
-
-    .collection-img {
-      height: 120px;
-      object-fit: cover;
-      border-radius: 12px;
-      filter: grayscale(20%);
-      transition: var(--transition);
-    }
-
-    .collection-img:hover {
-      filter: grayscale(0%);
-      transform: scale(1.03);
-    }
-
-    .collection-name {
-      font-size: 14px;
-      margin-top: 10px;
-      font-weight: 500;
-    }
-
-    /* === BEST SELLERS === */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .product-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: var(--transition);
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(74, 144, 226, 0.2);
-      border-color: var(--accent);
-    }
-
-    .product-img {
-      height: 300px;
-      object-fit: cover;
-    }
-
-    .product-info {
-      padding: 20px;
-    }
-
-    .product-title {
-      font-size: 1.2em;
-      margin-bottom: 8px;
-    }
-
-    .product-price {
-      font-size: 1.1em;
-      color: var(--accent);
-      margin-bottom: 15px;
-    }
-
-    .quick-add {
-      padding: 8px 16px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      background: transparent;
-      border-radius: 20px;
-      font-size: 13px;
-      display: none;
-    }
-
-    .product-card:hover .quick-add {
-      display: inline-block;
-    }
-
-    /* === DIFFERENCE === */
-    .difference {
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    .features {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .feature {
-      max-width: 300px;
-    }
-
-    .feature-icon {
-      font-size: 2.5em;
-      color: var(--accent);
-      margin-bottom: 15px;
-    }
-
-    /* === THE ARCHIVE === */
-    .archive {
-      background: rgba(255,255,255,0.03);
-      border-radius: 20px;
-      padding: 40px;
-      margin-top: 60px;
-    }
-
-    .archive-post {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .archive-img {
-      flex: 1;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .archive-content {
-      flex: 1;
-    }
-
-    .archive-title {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-
-    .archive-excerpt {
-      color: var(--silver);
-      margin-bottom: 15px;
-    }
-
-    /* === QUIZ === */
-    .quiz-section {
-      background: rgba(74, 144, 226, 0.1);
-      border-radius: 20px;
-      padding: 60px;
-      text-align: center;
-    }
-
-    .quiz-title {
-      font-size: 2.2em;
-      margin-bottom: 20px;
-    }
-
-    .quiz-cta {
-      font-size: 1.1em;
-      margin-bottom: 30px;
-      opacity: 0.9;
-    }
-
-    /* === FOOTER === */
-    footer {
-      background: var(--black);
-      padding: 80px 0 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .footer-logo {
-      font-size: 1.6em;
-      margin-bottom: 15px;
-    }
-
-    .footer-logo span {
-      color: var(--accent);
-    }
-
-    .footer-about, .footer-links {
-      color: var(--silver);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    .socials {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .socials a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--silver);
-      border-radius: 50%;
-      transition: var(--transition);
-    }
-
-    .socials a:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--black);
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: var(--silver);
-      font-size: 13px;
-    }
-
-    /* === ANIMATIONS === */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in {
-      animation: fadeIn 1s ease forwards;
-      opacity: 0;
-    }
-
-    /* === RESPONSIVE === */
-    @media (max-width: 768px) {
-      .hero-title { font-size: 2.8em; }
-      .section-title { font-size: 2em; }
-      .header-container, .archive-post { flex-direction: column; text-align: center; }
-      .archive-img { order: -1; }
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .footer-links, .footer-about { margin: 0 auto; max-width: 300px; }
-    }
-  </style>
+  <!-- Snipcart CSS (e-commerce) -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
 
   <!-- HEADER -->
-  <header>
+  <header class="fade-in">
     <div class="container header-container">
-      <div class="logo">Ani<span>Lux</span></div>
+      <a href="/" class="logo">Ani<span>Lux</span></a>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
           <li><a href="#">Collections</a></li>
-          <li><a href="#">The Archive</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Support</a></li>
+          <li><a href="archive.html">The Archive</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
         </ul>
       </nav>
       <div class="header-right">
         <a href="#" class="icon">🔍</a>
-        <a href="#" class="icon">🛒</a>
+        <a href="#" class="icon snipcart-checkout">🛒 <span class="snipcart-items-count">0</span></a>
       </div>
     </div>
   </header>
@@ -527,50 +53,138 @@
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
-      <h1 class="hero-title">Celestial Blue Collection: Infinite Dreams</h1>
-      <p class="hero-subtitle">Inspired by the vast cosmos of Neon Genesis Evangelion and the quiet strength of Rei Ayanami.</p>
-      <a href="#" class="btn btn-primary">Shop Now</a>
+      <h1 class="hero-title">Celestial Blue Collection</h1>
+      <p class="hero-subtitle">Infinite dreams, quiet strength. Inspired by Evangelion.</p>
+      <a href="#collections" class="btn btn-primary">Explore</a>
     </div>
   </section>
 
   <!-- COLLECTIONS BAR -->
   <div class="collections-bar">
     <div class="container">
-      <div class="collection-item">
-        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Shinobi Line" class="collection-img">
-        <div class="collection-name">The Shinobi Line</div>
-      </div>
-      <div class="collection-item">
-        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Ghibli Elegance" class="collection-img">
-        <div class="collection-name">Ghibli Elegance</div>
-      </div>
-      <div class="collection-item">
-        <img src="https://images.unsplash.com/photo-1539594788516-2f4066387c57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Mecha Legends" class="collection-img">
-        <div class="collection-name">Mecha Legends</div>
-      </div>
-      <div class="collection-item">
-        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Street Samurai" class="collection-img">
-        <div class="collection-name">Street Samurai</div>
-      </div>
+      <div class="collection-item"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300" alt="Shinobi Line"><div class="collection-name">Shinobi Line</div></div>
+      <div class="collection-item"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300" alt="Ghibli Elegance"><div class="collection-name">Ghibli Elegance</div></div>
+      <div class="collection-item"><img src="https://images.unsplash.com/photo-1539594788516-2f4066387c57?ixlib=rb-4.0.3&auto=format&fit=crop&w=300" alt="Mecha Legends"><div class="collection-name">Mecha Legends</div></div>
+      <div class="collection-item"><img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=300" alt="Street Samurai"><div class="collection-name">Street Samurai</div></div>
     </div>
   </div>
 
-  <main>
-    <div class="container">
+  <!-- BEST SELLERS -->
+  <section class="section">
+    <h2 class="section-title">Best Sellers</h2>
+    <div class="products-grid">
+      <div class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1521334884939-336d9c0f142d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Uzumaki Windbreaker" class="product-img">
+        <div class="product-info">
+          <h3 class="product-title">Uzumaki Windbreaker</h3>
+          <div class="product-price">$129.99</div>
+          <button class="snipcart-add-item quick-add"
+            data-item-id="windbreaker-uzumaki"
+            data-item-name="Uzumaki Windbreaker"
+            data-item-price="129.99"
+            data-item-url="/product.html"
+            data-item-image="https://images.unsplash.com/photo-1521334884939-336d9c0f142d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800"
+            data-item-description="Naruto-inspired windbreaker with subtle spiral logo. Premium fabric.">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1554568564-c5b4a4d89d1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Totoro Crewneck" class="product-img">
+        <div class="product-info">
+          <h3 class="product-title">Totoro Crewneck</h3>
+          <div class="product-price">$89.99</div>
+          <button class="snipcart-add-item quick-add"
+            data-item-id="crewneck-totoro"
+            data-item-name="Totoro Crewneck"
+            data-item-price="89.99"
+            data-item-url="/product.html"
+            data-item-image="https://images.unsplash.com/photo-1554568564-c5b4a4d89d1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800"
+            data-item-description="Subtle Totoro embroidery on soft, organic cotton. Ghibli Archive Collection.">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- BEST SELLERS -->
-      <section class="section">
-        <h2 class="section-title">Best Sellers</h2>
-        <div class="products-grid">
-          <div class="product-card fade-in">
-            <img src="https://images.unsplash.com/photo-1521334884939-336d9c0f142d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Uzumaki Windbreaker" class="product-img">
-            <div class="product-info">
-              <h3 class="product-title">Uzumaki Windbreaker</h3>
-              <div class="product-price">$129.99</div>
-              <button class="quick-add">Add to Cart</button>
-            </div>
-          </div>
-          <div class="product-card fade-in">
-            <img src="https://images.unsplash.com/photo-1554568564-c5b4a4d89d1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Totoro Crewneck" class="product-img">
-            <div class="product-info">
-              <
+  <!-- QUIZ SECTION -->
+  <section class="section quiz-section">
+    <h2 class="quiz-title">✨ Find Your Vibe</h2>
+    <p class="quiz-cta">Which anime aesthetic matches your style?</p>
+    <button class="btn" onclick="startQuiz()">Take the Quiz</button>
+  </section>
+
+  <!-- ARCHIVE -->
+  <section class="section">
+    <h2 class="section-title">The Archive</h2>
+    <div class="archive">
+      <div class="archive-post">
+        <img src="https://images.unsplash.com/photo-1515886425900-ef697ade8522?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Designing Evangelion Line" class="archive-img">
+        <div class="archive-content">
+          <h3 class="archive-title">The Art of Subtle Fandom</h3>
+          <p class="archive-excerpt">How we designed the Evangelion Collection to honor the original while standing as high fashion.</p>
+          <a href="archive-post.html" class="btn">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">Ani<span>Lux</span></div>
+        <div class="footer-about">For fans who wear their worlds with grace. Est. 2025.</div>
+        <div class="socials">
+          <a href="#"><span>IG</span></a>
+          <a href="#"><span>TW</span></a>
+          <a href="#"><span>TT</span></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#">Shinobi Line</a></li>
+          <li><a href="#">Ghibli Elegance</a></li>
+          <li><a href="#">Mecha Legends</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">© 2025 AniLux. All rights reserved. Made with 💖 for the anime soul.</div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:white; color:black; padding:20px; text-align:center; z-index:9999;">
+    We use cookies to enhance your experience. By continuing, you accept our <a href="privacy.html">Privacy Policy</a>.
+    <button onclick="acceptCookies()" style="margin-left:10px; background:#4A90E2; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;">Accept</button>
+  </div>
+
+  <!-- Snipcart Scripts -->
+  <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY"></div>
+
+  <!-- Scripts -->
+  <script src="/js/main.js" defer></script>
+  <script src="/js/quiz.js" defer></script>
+  <script src="/js/cart.js" defer></script>
+</body>
+</html>
