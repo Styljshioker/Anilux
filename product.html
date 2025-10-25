@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Uzumaki Windbreaker – AniLux</title>
+  <meta name="description" content="Naruto-inspired windbreaker with subtle spiral logo. Premium Japanese fabric.">
+  <link rel="icon" href="/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+</head>
+<body>
+  <header class="fade-in">
+    <div class="container header-container">
+      <a href="/" class="logo">Ani<span>Lux</span></a>
+      <nav>
+        <ul>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">The Archive</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="icon snipcart-checkout">🛒 <span class="snipcart-items-count">0</span></a>
+    </div>
+  </header>
+
+  <div class="container" style="padding:100px 20px;">
+    <div style="display:flex; gap:40px; flex-wrap:wrap;">
+
+      <!-- Image Gallery -->
+      <div style="flex:1; min-width:300px;">
+        <img src="https://images.unsplash.com/photo-1521334884939-336d9c0f142d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Uzumaki Windbreaker" id="main-img" style="width:100%; border-radius:16px;">
+      </div>
+
+      <!-- Product Info -->
+      <div style="flex:1; min-width:300px;">
+        <h1>Uzumaki Windbreaker</h1>
+        <p style="color:var(--accent); font-size:1.4em; margin:10px 0;">$129.99</p>
+        <p>Naruto-inspired windbreaker with subtle spiral logo. Premium Japanese fabric. Ethically made.</p>
+
+        <!-- Color Switcher -->
+        <h3 style="margin:20px 0 10px;">Color</h3>
+        <div style="display:flex; gap:10px;">
+          <div class="color-swatch active" data-color="Navy" style="background:#0a0a0a; width:30px; height:30px; border-radius:50%; cursor:pointer;" onclick="changeColor(this)"></div>
+          <div class="color-swatch" data-color="Cream" style="background:#f8f5f2; width:30px; height:30px; border-radius:50%; cursor:pointer;" onclick="changeColor(this)"></div>
+        </div>
+
+        <!-- Symbol Switcher -->
+        <h3 style="margin:20px 0 10px;">Chest Symbol</h3>
+        <div style="display:flex; gap:15px; font-size:0.9em;">
+          <label><input type="radio" name="symbol" value="Spiral" checked> Spiral</label>
+          <label><input type="radio" name="symbol" value="Leaf"> Leaf Village</label>
+          <label><input type="radio" name="symbol" value="None"> None</label>
+        </div>
+
+        <!-- Size -->
+        <h3 style="margin:20px 0 10px;">Size</h3>
+        <select style="padding:10px; border-radius:8px; width:100px;">
+          <option>XS</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+        </select>
+
+        <!-- Add to Cart -->
+        <button class="snipcart-add-item btn-primary" style="margin-top:30px; padding:14px 30px;"
+          data-item-id="windbreaker-uzumaki"
+          data-item-name="Uzumaki Windbreaker"
+          data-item-price="129.99"
+          data-item-url="/product.html"
+          data-item-image="https://images.unsplash.com/photo-1521334884939-336d9c0f142d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800"
+          data-item-description="Custom: Spiral on Navy">
+          Add to Cart
+        </button>
+
+        <p style="margin-top:20px; font-size:0.9em; color:var(--silver);">Only 3 left in stock</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY"></div>
+</body>
+</html>
